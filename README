@@ -4,4 +4,23 @@ http://clete2.com/
 
 RTTTL.pde is an example given by the Arduino team and I have no ownership or responsibility for it.
 
-Enjoy!
+Setup directions:
+1) Set up Arduino.
+- Install Ethernet shield
+- Install LCD
+- Install buzzer
+
+2) Place PHP file on an accessible server.
+- Change the byte server[] in DrudgeHeadline.pde to reflect the IP address of your server.
+- Change the GET command in DrudgeHeadline.pde to pull your PHP file.
+
+3) Change IP and MAC information in DrudgeHeadline.pde
+
+4) Change all SMTP information in smtp.pde
+- Username and password should be encoded using base 64.
+- Server information, from email, and to email are needed.
+- The script does not support encryption. Use a SMTP server that allows plain text to be used.
+
+5) Choose your favorite song in RTTTL.pde
+
+6) Enjoy.

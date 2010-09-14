@@ -1,6 +1,6 @@
 // You will need to customize these settings
 // This script assumes that the ethernet shield has already been started
-byte smtp_server[] = {70, 84, 174, 162};
+byte smtp_server[] = {0, 0, 0, 0};
 int port = 25;
 String username = ""; // Base 64 encoded
 String password = ""; // Base 64 encoded

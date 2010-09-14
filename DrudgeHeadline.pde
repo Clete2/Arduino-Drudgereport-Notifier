@@ -63,7 +63,7 @@ void startConnection(){
     client.println("GET /drudge.php HTTP/1.0");
     client.println();
   }else{
-    Serial.println("Connection failed");
+    //Serial.println("Connection failed");
   }
 }
 

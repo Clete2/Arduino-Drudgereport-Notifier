@@ -1,28 +1,28 @@
 // You will need to customize these settings
 // This script assumes that the ethernet shield has already been started
-byte smtp_server[] = {0, 0, 0, 0};
+byte smtp_server[] = {70, 84, 174, 162};
 int port = 25;
 String username = ""; // Base 64 encoded
 String password = ""; // Base 64 encoded
 String from_email = "";
-String to_email = ""; // Try sending to a SMS address.
+String to_email = "";
 
 Client smtp_client(smtp_server, port);
 
 void smtp_startConnection(){
-  //Serial.println("Connecting (SMTP)...");
+  Serial.println("Connecting (SMTP)...");
   
   if(smtp_client.connect()){
-    //Serial.println("Connected");
+    Serial.println("Connected");
   }else{
-    //Serial.println("Connection failed");
+    Serial.println("Connection failed");
   }
 }
 
 void smtp_stopConnection(){
-    //Serial.println("Disconnecting (SMTP)");
+    Serial.println("Disconnecting (SMTP)");
 
-    //Serial.println();
+    Serial.println();
 
     smtp_client.stop();
 }
@@ -53,13 +53,13 @@ void smtp_send(String message){
 void smtp_send_message(String message){
   smtp_read();
   smtp_client.print(message);
-  //Serial.print(message);
+  Serial.print(message);
   delay(1000);
 }
  
 void smtp_read(){
     while(smtp_client.available()){
     char c = smtp_client.read();
-    //Serial.print(c);
+    Serial.print(c);
   }
 }

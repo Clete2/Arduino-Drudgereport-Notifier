@@ -12,12 +12,12 @@ String headline = "";
 short numNewlines = 0;
 
 Client client(server, 80);
-LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
+LiquidCrystal lcd(2, 3, 4, 5, 6, 7); // Change to your LCD pins. I recommend these pins as they do not interfere with the Ethernet shield.
 
 void setup(){
   Ethernet.begin(mac, ip);
   lcd.begin(16, 2);
-  //Serial.begin(9600);
+  Serial.begin(9600);
   
   delay(1000);
   
@@ -56,36 +56,36 @@ void startConnection(){
   headline = "";
   numNewlines = 0;
   
-  //Serial.println("Connecting...");
+  Serial.println("Connecting...");
   
   if(client.connect()){
-    //Serial.println("Connected");
-    client.println("GET /drudge.php HTTP/1.0");
+    Serial.println("Connected");
+    client.println("GET http://csclub.mansfield.edu/~clete2/drudge.php HTTP/1.0");
     client.println();
   }else{
-    //Serial.println("Connection failed");
+    Serial.println("Connection failed");
   }
 }
 
 void stopConnection(){
-    //Serial.println("Disconnecting");
-    //Serial.print("Retrieved the text: ");
-    //Serial.println(headline.substring(1, headline.length()));
+    Serial.println("Disconnecting");
+    Serial.print("Retrieved the text: ");
+    Serial.println(headline.substring(1, headline.length()));
 
     printToLCD(headline);
 
     if(!headline.equalsIgnoreCase(lastHeadline)){
-      //Serial.println("New headline!");
+      Serial.println("New headline!");
       play_song();
       
-      //Serial.println();
+      Serial.println();
       client.stop();
       
       smtp_startConnection();
       smtp_send(headline);
       smtp_stopConnection();
     }else{
-      //Serial.println();
+      Serial.println();
 
       client.stop();
     }

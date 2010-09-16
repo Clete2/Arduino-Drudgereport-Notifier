@@ -13,6 +13,8 @@ Tone tone1;
 
 #define OCTAVE_OFFSET 0
 
+int speaker_pin = 8; // Change your pin
+
 int notes[] = { 0,
 NOTE_C4, NOTE_CS4, NOTE_D4, NOTE_DS4, NOTE_E4, NOTE_F4, NOTE_FS4, NOTE_G4, NOTE_GS4, NOTE_A4, NOTE_AS4, NOTE_B4,
 NOTE_C5, NOTE_CS5, NOTE_D5, NOTE_DS5, NOTE_E5, NOTE_F5, NOTE_FS5, NOTE_G5, NOTE_GS5, NOTE_A5, NOTE_AS5, NOTE_B5,
@@ -57,7 +59,7 @@ void play_rtttl(char *p)
 {
   // Absolutely no error checking in here
 
-  tone1.begin(8); // Change to your pin
+  tone1.begin(speaker_pin);
 
   byte default_dur = 4;
   byte default_oct = 6;

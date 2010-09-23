@@ -10,19 +10,19 @@ String to_email = "";
 Client smtp_client(smtp_server, port);
 
 void smtp_startConnection(){
-  Serial.println("Connecting (SMTP)...");
+  //Serial.println("Connecting (SMTP)...");
   
   if(smtp_client.connect()){
-    Serial.println("Connected");
+    //Serial.println("Connected");
   }else{
-    Serial.println("Connection failed");
+    //Serial.println("Connection failed");
   }
 }
 
 void smtp_stopConnection(){
-    Serial.println("Disconnecting (SMTP)");
+    //Serial.println("Disconnecting (SMTP)");
 
-    Serial.println();
+    //Serial.println();
 
     smtp_client.stop();
 }
@@ -53,13 +53,13 @@ void smtp_send(String message){
 void smtp_send_message(String message){
   smtp_read();
   smtp_client.print(message);
-  Serial.print(message);
+  //Serial.print(message);
   delay(1000);
 }
  
 void smtp_read(){
     while(smtp_client.available()){
     char c = smtp_client.read();
-    Serial.print(c);
+    //Serial.print(c);
   }
 }

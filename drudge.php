@@ -18,8 +18,8 @@ if(!$drudgeConnection){
 }
 
 //$regex = "/\<!\sMAIN\sHEADLINE\>.*\"\>(.*)\<\/A\>/"; // Could be improved, but it works as-is
-$regex = "/\<!\sMAIN\sHEADLINE\>.*\>(.*)\</";
+//$regex = "/\<!\sMAIN\sHEADLINE\>.*\>(.*)\</";
+$regex = "/\<!\sMAIN\sHEADLINE\>.*\<A\sHREF.*?\>(.*)\<\/A\>/";
 preg_match($regex, $drudgeFullText, $drudgeHeadline);
 print($drudgeHeadline[1]);
 ?>
-

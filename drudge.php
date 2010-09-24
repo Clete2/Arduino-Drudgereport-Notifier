@@ -17,7 +17,7 @@ if(!$drudgeConnection){
         fclose($drudgeConnection);
 }
 
-$regex = "/\<!\sMAIN\sHEADLINE\>.*?\>([A-Za-z\'\"\` ]+)\<?\/?/";
+$regex = "/\<!\sMAIN\sHEADLINE\>.*?\>([A-Za-z\'\"\`:, ]+)\<?\/?/is";
 preg_match($regex, $drudgeFullText, $drudgeHeadline);
 print($drudgeHeadline[1]);
 ?>
